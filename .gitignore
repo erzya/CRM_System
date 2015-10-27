@@ -1,1 +1,8 @@
 .idea
+<<<<<<< HEAD
+=======
+.idea_modules
+idea.bat
+out
+*.iml
+>>>>>>> 9f35a00e714bdec302b142e26faaa52266f85114
