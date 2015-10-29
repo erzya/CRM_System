@@ -1,0 +1,13 @@
+{
+  "name": "spring-mvc-angularjs-CRM_System",
+  "version": "1.0",
+  "homepage": "https://github.com/erzya/CRM_System.git",
+  "description": "Sample Spring MVC | AngularJs project - CRM System",
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-messages": "1.4.x",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x",
+    "jquery": "~2.1.1"
+  }
+}
