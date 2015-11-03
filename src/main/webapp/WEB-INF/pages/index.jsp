@@ -22,6 +22,7 @@
         <script src="resources/bower_components/angular/angular.min.js"></script>
         <script src="resources/bower_components/angular-route/angular-route.min.js"></script>
 
+        <script src="resources/static/js/app.js"></script>
         <script src="resources/static/js/controllers.js"></script>
     </body>
 
