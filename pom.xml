@@ -10,7 +10,8 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <hibernate.version>3.5.6-Final</hibernate.version>
-        <javax.persistence>1.0</javax.persistence>
+        <javax.persistence.version>1.0</javax.persistence.version>
+        <jackson.version>2.1.2</jackson.version>
     </properties>
 
     <dependencies>
@@ -58,6 +59,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+            <scope>provided</scope> <!--important for tomcat plugin-->
         </dependency>
 
         <dependency>
@@ -89,7 +91,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
-            <version>3.3.1.GA</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
@@ -102,33 +104,27 @@
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
-            <version>${javax.persistence}</version>
+            <version>${javax.persistence.version}</version>
         </dependency>
-
 
 
         <!--JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.1.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.1.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.1.2</version>
+            <version>${jackson.version}</version>
         </dependency>
 
-  <!--      <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>-->
 
     </dependencies>
     <build>
@@ -144,8 +140,8 @@
                 </configuration>
             </plugin>
 
-           <!--for start server:  mvn tomcat7:run-war
-            if tomcat wont run:
+           <!--for start server:  mvn tomcat7:run
+            if tomcat wont run (null:8080):
             sudo lsof -i :8080
             sudo kill -9 <pid from previous command>-->
 
