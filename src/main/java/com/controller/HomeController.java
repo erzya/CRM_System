@@ -4,6 +4,7 @@ package com.controller;
 
 import com.model.Item;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    private Logger logger = Logger.getLogger(HomeController.class);
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String begin(Model model){
@@ -29,6 +31,9 @@ public class HomeController {
     public @ResponseBody
     List<Item> listAll(Model model){
         List<Item> list = new ArrayList<Item>();
+
+        logger.info("This is an info log entry");
+        logger.error("This is an error log entry");
 
         Item item1 = new Item();
         item1.setName("BRRRRRRRRRRR");
