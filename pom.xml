@@ -131,6 +131,35 @@
         </dependency>-->
 
     </dependencies>
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                   <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+           <!--for start server:  mvn tomcat7:run-war
+            if tomcat wont run:
+            sudo lsof -i :8080
+            sudo kill -9 <pid from previous command>-->
+
+            <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <path>/</path>
+                    </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
 
 
 
