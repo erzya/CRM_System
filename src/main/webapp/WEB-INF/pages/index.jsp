@@ -4,16 +4,31 @@
     <head>
         <base href="/"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #footer {
+                position: fixed;
+                height: 100px;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
         <link rel="stylesheet" href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" >
         <title></title>
     </head>
 
     <body id="CRM_System" data-ng-controller="CRM_SystemController">
-        <div class="" style="display:inline-block; margin-left: 0.3em"  data-ng-repeat="item in listItems">
-            <a class="btn btn-info" role="button" href="/items/{{item.name}}">{{item.name}}</a>
+        <div id="container" class="panel panel-default">
+            <div id="header" class="panel-heading">
+                <div class="btn-group btn-group-justified">
+                    <a class="btn btn-info" data-ng-repeat="item in listItems" role="button" href="/items/{{item.name}}">{{item.name}}</a>
+                </div>
+            </div>
+            <div id="body" class="panel-body">
+                <ng-view></ng-view>
+            </div>
+            <div id="footer" class="panel-footer"> <h3>CRM_System</h3></div>
         </div>
 
-        <ng-view></ng-view>
 
         <%--JS-code--%>
 
