@@ -4,31 +4,46 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
     @Id
-    @Column(name ="id_emp")
+    @Column(name = "id_emp")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_emp;
 
-    @Column(name ="name")
+    @Column(name = "name")
     @NotNull
     @Size(min = 3, max = 30, message = "Name should have {min} - {max} characters")
     @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Name:Only letters allowed")
     private String name;
 
 
-    @Column(name ="surname")
+    @Column(name = "surname")
     @NotNull
     @Size(min = 3, max = 30, message = "Name should have {min} - {max} characters")
     @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Name:Only letters allowed")
     private String surname;
 
-    @Column(name ="isActive")
+    @Column(name = "isActive")
     private boolean isActive;
 
+    @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Order> orders = new HashSet<>(0);
+
+    public Employee(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Employee(String name, String surname, boolean isActive) {
+        this.name = name;
+        this.surname = surname;
+        this.isActive = isActive;
+    }
 
     public int getId_emp() {
         return id_emp;
@@ -60,5 +75,13 @@ public class Employee {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

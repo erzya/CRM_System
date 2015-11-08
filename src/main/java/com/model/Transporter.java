@@ -8,49 +8,56 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "clients")
-public class Client {
+@Table(name = "transporters")
+public class Transporter {
     @Id
-    @Column(name = "id_cl")
+    @Column(name = "id_tran")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_cl;
+    private int id_tran;
 
     @Column(name = "name")
     @NotNull
-    @Size(min = 3, max = 30, message = "Name should have {min} - {max} characters")
-    @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Name:Only letters allowed")
+    @Size(min = 3, max = 50, message = "Name should have {min} - {max} characters")
     private String name;
 
     @Column(name = "telephone")
     @NotNull
-    @Size(min = 7, max = 13, message = "Telephone number should have {min} - {max} characters")
+    @Size(min = 7, max = 15, message = "Telephone number should have {min} - {max} characters")
     @Pattern(regexp = "^[0-9]*$", message = "Only digits allowed")
     private String telephone;
 
+    @Column(name = "type")
+    @NotNull
+    @Size(min = 2, max = 25, message = "Type should have {min} - {max} characters")
+    @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Type:Only letters allowed")
+    private String type;
+
     @Column(name = "details")
-    @Size(min = 10, max = 100)
+    @Size(min = 10, max = 150)
     private String details;
 
-    @OneToMany(mappedBy = "clients", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "transporters", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>(0);
 
-    public Client(String name, String telephone) {
+    public Transporter(String name, String telephone, String type) {
         this.name = name;
         this.telephone = telephone;
+        this.type = type;
     }
 
-    public Client(String name, String telephone, String details) {
+    public Transporter(String name, String telephone, String type, String details) {
         this.name = name;
         this.telephone = telephone;
+        this.type = type;
         this.details = details;
     }
 
-    public int getId_cl() {
-        return id_cl;
+    public int getId_tran() {
+        return id_tran;
     }
 
-    public void setId_cl(int id_cl) {
-        this.id_cl = id_cl;
+    public void setId_tran(int id_tran) {
+        this.id_tran = id_tran;
     }
 
     public String getName() {
@@ -67,6 +74,14 @@ public class Client {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDetails() {
