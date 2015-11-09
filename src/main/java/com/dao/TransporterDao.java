@@ -9,7 +9,7 @@ public interface TransporterDao {
 
     public void deleteTransporter(int id_tran);
 
-    public void updateTransporter(int id_tran);
+    public void updateTransporter(Transporter transporter);
 
     public Transporter getTransporter(int id_tran);
 

@@ -9,7 +9,7 @@
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
-        <hibernate.version>3.5.6-Final</hibernate.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
         <javax.persistence>1.0</javax.persistence>
     </properties>
 
@@ -34,24 +34,24 @@
             <version>${spring.version}</version>
         </dependency>
 
-      <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+         <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-tx</artifactId>
+              <version>${spring.version}</version>
+          </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-orm</artifactId>
+              <version>${spring.version}</version>
+          </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
-        </dependency>-->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-test</artifactId>
+              <version>${spring.version}</version>
+              <scope>test</scope>
+          </dependency>
 
         <!--Servlet-->
         <dependency>
@@ -80,23 +80,32 @@
         </dependency>
 
         <!--Hibernate-->
- <!--       <dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.3.2.Final</version>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
-            <version>3.3.1.GA</version>
+            <version>3.5.6-Final</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>4.0.5.Final</version>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-commons-annotations</artifactId>
-            <version>3.3.0.ga</version>
-        </dependency>-->
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.11.Final</version>
+        </dependency>
+
 
         <!--JavaxPersistence-->
         <dependency>
@@ -104,7 +113,6 @@
             <artifactId>persistence-api</artifactId>
             <version>${javax.persistence}</version>
         </dependency>
-
 
 
         <!--JSON -->
@@ -136,7 +144,6 @@
               </dependency>-->
 
     </dependencies>
-
 
 
 </project>

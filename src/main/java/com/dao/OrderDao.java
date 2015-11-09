@@ -9,7 +9,7 @@ public interface OrderDao {
 
     public void deleteOrder(int id_order);
 
-    public void updateOrder(int id_order);
+    public void updateOrder(Order order);
 
     public Order getOrder(int id_order);
 
