@@ -19,7 +19,7 @@
             <div id="body" class="panel-body">
                 <ng-view></ng-view>
             </div>
-            <div id="footer" class="panel-footer"> <h3>CRM_System</h3></div>
+           <%-- <div id="footer" class="panel-footer"> <h3>CRM_System</h3></div>--%>
         </div>
 
         <%--JS-code--%>
@@ -28,6 +28,7 @@
         <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="resources/bower_components/angular/angular.min.js"></script>
         <script src="resources/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="resources/bower_components/angular-resource/angular-resource.min.js"></script>
 
         <script src="resources/static/js/app.js"></script>
         <script src="resources/static/js/controllers.js"></script>
