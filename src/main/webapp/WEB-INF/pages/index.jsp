@@ -30,8 +30,11 @@
         <script src="resources/bower_components/angular-route/angular-route.min.js"></script>
         <script src="resources/bower_components/angular-resource/angular-resource.min.js"></script>
 
-        <script src="resources/static/js/app.js"></script>
-        <script src="resources/static/js/controllers.js"></script>
+        <script src="resources/static/app.js"></script>
+        <script src="resources/static/components/client/clientController.js"></script>
+        <script src="resources/static/components/client/clientApp.js"></script>
+        <script src="resources/static/components/order/orderController.js"></script>
+        <script src="resources/static/components/order/orderApp.js"></script>
     </body>
 
 
