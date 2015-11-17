@@ -8,7 +8,7 @@ angular.module('orderApp',['ngRoute','orderController'])
                 templateUrl:'/resources/static/components/order/orders.jsp',
                 controller : 'CRM_OrdersController'
             })
-                .when('/items/Orders/new',
+            .when('/items/Orders/new',
             {
                 templateUrl:'/resources/static/components/order/createOrder.jsp',
                 controller : 'CRM_OrderCreateController'

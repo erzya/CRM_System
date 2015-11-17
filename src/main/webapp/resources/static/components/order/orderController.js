@@ -32,7 +32,6 @@ orderController.controller('CRM_OrderCreateController',['$scope','$routeParams',
     function($scope, $routeParams, OrderFactory,ClientFactory, $location){
         $scope.listClients = ClientFactory.query();
         $scope.saveOrder = function(){
-            console.log("WWWWWWWW77777777777");
             OrderFactory.save({action:'new'},$scope.order)
                 .$promise.then(
                 //success
@@ -43,6 +42,5 @@ orderController.controller('CRM_OrderCreateController',['$scope','$routeParams',
                 function( error ){
                     alert(error);
                 });
-            console.log("-------- "+ $scope.order.orderId);
         }
     }]);
