@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>{{tableName}}</h2>
+    <h2 ng-bind="tableName"></h2>
 
     <table class="table table-hover">
         <thead>
@@ -9,6 +9,7 @@
             <th>Phone</th>
             <th>Details</th>
             <th>Orders</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -23,13 +24,18 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu"  >
+                            <li> <a href="#/items/Orders/new"  data-toggle="tooltip">Create new Order</a></li>
                             <li ng-repeat="order in client.orders">
                                 <a href="#/items/Orders/{{order.id_order}}" ng-bind="order.orderscol"></a>
                             </li>
                         </ul>
                     </div>
                 </td>
+                <td>
+                    <a href="#/items/Clients/del/{{client.id_cl}}" class="btn btn-default" data-toggle="tooltip" title="Delete client"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+<a href="#/items/Clients/new" class="btn btn-primary">New Client</a>
