@@ -4,12 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee implements Serializable {
     @Id
     @Column(name = "id_emp")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +32,7 @@ public class Employee {
     @Column(name = "isActive")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>(0);
 
     public Employee(String name, String surname) {
@@ -43,6 +44,9 @@ public class Employee {
         this.name = name;
         this.surname = surname;
         this.isActive = isActive;
+    }
+
+    public Employee() {
     }
 
     public int getId_emp() {

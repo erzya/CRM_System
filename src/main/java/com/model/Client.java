@@ -4,12 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "clients")
-public class Client {
+public class Client implements Serializable {
     @Id
     @Column(name = "id_cl")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +32,7 @@ public class Client {
     @Size(min = 10, max = 100)
     private String details;
 
-    @OneToMany(mappedBy = "clients", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>(0);
 
     public Client(String name, String telephone) {
@@ -43,6 +44,9 @@ public class Client {
         this.name = name;
         this.telephone = telephone;
         this.details = details;
+    }
+
+    public Client() {
     }
 
     public int getId_cl() {

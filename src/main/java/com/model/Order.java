@@ -4,10 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order implements Serializable {
     @Id
     @Column(name = "id_order")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,6 +41,9 @@ public class Order {
         this.client = client;
         this.employee = employee;
         this.transporter = transporter;
+    }
+
+    public Order() {
     }
 
     public int getId_order() {

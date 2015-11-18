@@ -4,12 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "transporters")
-public class Transporter {
+public class Transporter implements Serializable {
     @Id
     @Column(name = "id_tran")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +37,7 @@ public class Transporter {
     @Size(min = 10, max = 150)
     private String details;
 
-    @OneToMany(mappedBy = "transporters", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "transporter", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>(0);
 
     public Transporter(String name, String telephone, String type) {
@@ -50,6 +51,9 @@ public class Transporter {
         this.telephone = telephone;
         this.type = type;
         this.details = details;
+    }
+
+    public Transporter() {
     }
 
     public int getId_tran() {

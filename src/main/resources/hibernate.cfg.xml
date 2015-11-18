@@ -6,5 +6,8 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.model.Client" />
+        <mapping class="com.model.Employee" />
+        <mapping class="com.model.Order" />
+        <mapping class="com.model.Transporter" />
     </session-factory>
 </hibernate-configuration>

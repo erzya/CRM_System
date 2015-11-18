@@ -24,9 +24,7 @@ public class ClientDaoImpl implements ClientDao {
 
     public void deleteClient(int id_cl) {
         Client client = getClient(id_cl);
-        if (client != null)
-            getCurrentSession().delete(client);
-
+        if (client != null) getCurrentSession().delete(client);
     }
 
     public void updateClient(Client client) {
@@ -36,7 +34,6 @@ public class ClientDaoImpl implements ClientDao {
         clientToUpdate.setTelephone(client.getTelephone());
         clientToUpdate.setOrders(client.getOrders());
         getCurrentSession().update(clientToUpdate);
-
     }
 
     public Client getClient(int id_cl) {
