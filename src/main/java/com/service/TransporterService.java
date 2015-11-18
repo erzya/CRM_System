@@ -1,10 +1,10 @@
-package com.dao;
+package com.service;
 
 import com.model.Transporter;
 
 import java.util.List;
 
-public interface TransporterDao {
+public interface TransporterService {
 
     public void addTransporter(Transporter transporter);
 

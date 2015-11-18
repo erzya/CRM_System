@@ -1,10 +1,10 @@
-package com.dao;
+package com.service;
 
 import com.model.Client;
 
 import java.util.List;
 
-public interface ClientDao {
+public interface ClientService {
 
     public void addClient(Client client);
 

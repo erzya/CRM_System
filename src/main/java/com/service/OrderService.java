@@ -1,10 +1,10 @@
-package com.dao;
+package com.service;
 
 import com.model.Order;
 
 import java.util.List;
 
-public interface OrderDao {
+public interface OrderService {
 
     public void addOrder(Order order);
 

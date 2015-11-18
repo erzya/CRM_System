@@ -1,10 +1,10 @@
-package com.dao;
+package com.service;
 
 import com.model.Employee;
 
 import java.util.List;
 
-public interface EmployeeDao {
+public interface EmployeeService {
 
     public void addEmployee(Employee employee);
 
