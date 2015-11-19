@@ -7,11 +7,11 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.controller"/>
 
-    <mvc:annotation-driven />
+
+    <mvc:annotation-driven/>
     <!-- Ensures that any resource requests not handled by Spring MVC mappings will be delegated back to the Servlet container -->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -19,7 +19,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
-
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.model"/>
 
 </beans>

@@ -1,9 +1,14 @@
 package com.controller;
 
-
-
-import com.model.Item;
-
+import com.model.Client;
+import com.model.Employee;
+import com.service.ClientService;
+import com.service.EmployeeService;
+import com.service.OrderService;
+import com.service.TransporterService;
+import org.hibernate.SessionFactory;
+import org.hibernate.metadata.ClassMetadata;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,36 +17,45 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by erzyasd on 22.10.15.
- */
+import java.util.Map;
 
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String begin(Model model){
+    /*@Autowired
+    SessionFactory sessionFactory;
+*/
+    private ClientService clientService;
+    private EmployeeService employeeService;
+    private OrderService orderService;
+    private TransporterService transporterService;
+
+    @Autowired
+    public HomeController(ClientService clientService, EmployeeService employeeService, OrderService orderService, TransporterService transporterService) {
+        this.clientService = clientService;
+        this.employeeService = employeeService;
+        this.orderService = orderService;
+        this.transporterService = transporterService;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String begin(Model model) {
+        model.addAttribute("clients", clientService);
+        model.addAttribute("employees", employeeService);
+        model.addAttribute("orders", orderService);
+        model.addAttribute("transporters", transporterService);
         return "index";
     }
 
-    @RequestMapping(value = "/item",method = RequestMethod.GET)
-    public @ResponseBody
-    List<Item> listAll(Model model){
-        List<Item> list = new ArrayList<Item>();
-
-        Item item1 = new Item();
-        item1.setName("BRRRRRRRRRRR");
-        Item item2 = new Item();
-        item2.setName("2BRRRR");
-        Item item3 = new Item();
-        item3.setName("3BR");
-
-        list.add(item1);
-        list.add(item2);
-        list.add(item3);
-
+   /* @RequestMapping(value = "/item", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<String> listAll(Model model) {
+        Map<String, ClassMetadata> map = sessionFactory.getAllClassMetadata();
+        List<String> list = new ArrayList<String>();
+        for (Map.Entry<String, ClassMetadata> pair : map.entrySet()) {
+            list.add(pair.getKey());
+        }
         return list;
-    }
-
+    }*/
 }
