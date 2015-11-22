@@ -13,7 +13,7 @@ CRM_SystemApp.controller('CRM_SystemController',['$scope','$http', function($sco
     console.log("GetHome ctr after  !!!!!!!!!!!!!");
 }]);
 
-                    /*Factories*/
+/*Factories*/
 /*----------------Client------------------*/
 CRM_SystemApp.factory('ClientFactory',['$resource',function($resource){
     console.log("Before Return    Client");
