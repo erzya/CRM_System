@@ -1,0 +1,13 @@
+define([
+	"../../..//bower_components/jquery/src/core",
+	"../..//jquery/src/traversing"
+], function( jQuery ) {
+
+// The number of elements contained in the matched element set
+jQuery.fn.size = function() {
+	return this.length;
+};
+
+jQuery.fn.andSelf = jQuery.fn.addBack;
+
+});
