@@ -1,11 +1,10 @@
 package com.controller;
 
-import com.model.Client;
-import com.model.Employee;
 import com.service.ClientService;
 import com.service.EmployeeService;
 import com.service.OrderService;
 import com.service.TransporterService;
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.metadata.ClassMetadata;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,32 +21,35 @@ import java.util.Map;
 @Controller
 public class HomeController {
 
-    /*@Autowired
+    private Logger logger = Logger.getLogger(HomeController.class);
+
+    @Autowired
     SessionFactory sessionFactory;
-*/
+
     private ClientService clientService;
-    private EmployeeService employeeService;
     private OrderService orderService;
+    private EmployeeService employeeService;
     private TransporterService transporterService;
 
     @Autowired
-    public HomeController(ClientService clientService, EmployeeService employeeService, OrderService orderService, TransporterService transporterService) {
+    public HomeController(ClientService clientService, OrderService orderService, EmployeeService employeeService, TransporterService transporterService) {
         this.clientService = clientService;
-        this.employeeService = employeeService;
         this.orderService = orderService;
+        this.employeeService = employeeService;
         this.transporterService = transporterService;
     }
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String begin(Model model) {
         model.addAttribute("clients", clientService);
-        model.addAttribute("employees", employeeService);
         model.addAttribute("orders", orderService);
+        model.addAttribute("employees", employeeService);
         model.addAttribute("transporters", transporterService);
         return "index";
     }
 
-   /* @RequestMapping(value = "/item", method = RequestMethod.GET)
+    @RequestMapping(value = "/item", method = RequestMethod.GET)
     public
     @ResponseBody
     List<String> listAll(Model model) {
@@ -57,5 +59,6 @@ public class HomeController {
             list.add(pair.getKey());
         }
         return list;
-    }*/
+    }
 }
+
