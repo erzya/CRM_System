@@ -32,6 +32,7 @@
                     </div>
                 </td>
                 <td>
+                    <a href="#/items/Clients/{{client.id_cl}}" class="btn btn-default" data-toggle="tooltip" title="Edit client"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="#/items/Clients/del/{{client.id_cl}}" class="btn btn-default" data-toggle="tooltip" title="Delete client"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>

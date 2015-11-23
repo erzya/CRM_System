@@ -20,7 +20,7 @@ angular.module('orderApp',['ngRoute','orderController'])
             })
             .when('/items/Orders/del/:id_order',
             {
-                templateUrl:'/resources/static/components/order/orders.jsp',
+                templateUrl:'/resources/static/components/order/orderList.jsp',
                 controller : 'CRM_OrderDelController'
             })
 

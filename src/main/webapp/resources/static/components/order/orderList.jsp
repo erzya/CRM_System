@@ -13,7 +13,7 @@
                 <td ng-bind="order.id_order"></td>
                 <td ng-bind="order.orderscol"></td>
                 <td>
-                    <a href="#/items/Orders/edit/{{order.id_order}}" class="btn btn-default" data-toggle="tooltip" title="Edit order"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="#/items/Orders/{{order.id_order}}" class="btn btn-default" data-toggle="tooltip" title="Edit order"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="#/items/Orders/del/{{order.id_order}}" class="btn btn-default" data-toggle="tooltip" title="Delete order"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>

@@ -20,7 +20,7 @@ angular.module('clientApp',['ngRoute','clientController'])
             })
             .when('/items/Clients/del/:id_cl',
             {
-                templateUrl:'/resources/static/components/client/clients.jsp',
+                templateUrl:'/resources/static/components/client/clientList.jsp',
                 controller : 'CRM_ClientDelController'
             })
         }

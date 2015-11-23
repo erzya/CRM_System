@@ -5,6 +5,7 @@ var clientController = angular.module('clientController',[]);
 clientController.controller('CRM_ClientsController',['$scope','ClientFactory', function($scope,ClientFactory) {
     $scope.tableName = "Clients Table";
     $scope.listClients = ClientFactory.query();
+    console.log("listGet     ", $scope.listClients);
 }]);
 
 clientController.controller('CRM_ClientController',['$scope','$routeParams','ClientFactory', function($scope, $routeParams, ClientFactory) {
@@ -26,6 +27,7 @@ clientController.controller('CRM_ClientDelController',['$scope','$routeParams','
 clientController.controller('CRM_ClientCreateController',['$scope','$routeParams','ClientFactory','$location',
     function($scope, $routeParams, ClientFactory,$location){
         $scope.saveClient = function(){
+            $scope.client.telephone = $scope.client.telephone.replace(/[^\d]/g,''); /*only digits*/
             ClientFactory.save({action:'new'},$scope.client)
                 .$promise.then(
                 //success
