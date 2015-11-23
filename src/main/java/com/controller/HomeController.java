@@ -42,14 +42,10 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String begin(Model model) {
-        model.addAttribute("clients", clientService);
-        model.addAttribute("orders", orderService);
-        model.addAttribute("employees", employeeService);
-        model.addAttribute("transporters", transporterService);
         return "index";
     }
 
-    @RequestMapping(value = "/item", method = RequestMethod.GET)
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
     public
     @ResponseBody
     List<String> listAll(Model model) {

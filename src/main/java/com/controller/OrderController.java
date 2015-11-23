@@ -3,46 +3,48 @@ package com.controller;
 import com.model.Order;
 import com.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Controller
 public class OrderController {
 
     private OrderService orderService;
-
     @Autowired
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+    public OrderController(OrderService orderService){
+        this.orderService =orderService;
     }
-
     @ResponseBody
-    @RequestMapping(value = "/orders/list", method = RequestMethod.GET)
-    public List<Order> geOrdertList(Model model) {
+    @RequestMapping(value = "/orders",method = RequestMethod.GET)
+    public List<Order> geOrdertList(){
         List<Order> orderList = orderService.getOrders();
         return orderList;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.GET)
-    public Order getOrder(@PathVariable("orderId") int id_order) {
-        Order order = orderService.getOrder(id_order);
+    @RequestMapping(value = "/orders/{orderId}",method = RequestMethod.GET)
+    public Order getOrder(@PathVariable("orderId") Integer orderId){
+        Order order = orderService.getOrder(orderId);
         return order;
     }
 
-    @RequestMapping(value = "/orders/create/{order}", method = RequestMethod.POST)
-    public void createOrder(@RequestBody Order order) {
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/orders/new",method = RequestMethod.POST)
+    public void createOrder(@RequestBody Order order){
+
         orderService.addOrder(order);
     }
 
-    @RequestMapping(value = "/orders/update/{order}", method = RequestMethod.POST)
-    public void updateOrder(@RequestBody Order order) {
+    @RequestMapping(value = "/orders/update/{orderId}",method = RequestMethod.POST)
+    public void deleteOrder(@RequestBody Order order){
         orderService.updateOrder(order);
     }
 
-    @RequestMapping(value = "/orders/delete/{order}", method = RequestMethod.POST)
-    public void deleteOrder(@RequestBody int id_order) {
-        orderService.deleteOrder(id_order);
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/orders/del/{orderId}",method = RequestMethod.POST)
+    public void deleteOrder(@PathVariable("orderId") Integer orderId){
+        orderService.deleteOrder(orderId);
     }
 }

@@ -3,46 +3,50 @@ package com.controller;
 import com.model.Client;
 import com.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Controller
 public class ClientController {
 
     private ClientService clientService;
 
     @Autowired
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientService clientService){
         this.clientService = clientService;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/clients/list", method = RequestMethod.GET)
-    public List<Client> getClientList(Model model) {
+    @RequestMapping(value = "/clients",method = RequestMethod.GET)
+    public List<Client> getClientList(){
         List<Client> clientList = clientService.getClients();
         return clientList;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/clients/{clientId}", method = RequestMethod.GET)
-    public Client getClient(@PathVariable("clientId") int id_cl) {
-        Client client = clientService.getClient(id_cl);
+    @RequestMapping(value = "/clients/{clientId}",method = RequestMethod.GET)
+    public Client getClient(@PathVariable("clientId") Integer clientId){
+        Client client = clientService.getClient(clientId);
         return client;
     }
 
-    @RequestMapping(value = "/clients/create/{client}", method = RequestMethod.POST)
-    public void createClient(@RequestBody Client client) {
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/clients/new",method = RequestMethod.POST)
+    public void createClient(@RequestBody Client client){
         clientService.addClient(client);
     }
 
-    @RequestMapping(value = "/clients/update/{client}", method = RequestMethod.POST)
-    public void updateClient(@RequestBody Client client) {
+    @RequestMapping(value = "/clients/update/{clientId}",method = RequestMethod.POST)
+    public void deleteClient(@RequestBody Client client){
         clientService.updateClient(client);
     }
 
-    @RequestMapping(value = "/clients/delete/{client}", method = RequestMethod.POST)
-    public void deleteClient(@RequestBody int id_cl) {
-        clientService.deleteClient(id_cl);
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/clients/del/{clientId}",method = RequestMethod.POST)
+    public void deleteClient(@PathVariable("clientId") Integer clientId){
+        System.out.println(clientId);
+        clientService.deleteClient(clientId);
     }
 }
