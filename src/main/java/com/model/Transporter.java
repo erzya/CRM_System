@@ -30,7 +30,7 @@ public class Transporter implements Serializable {
     @Column(name = "type")
     @NotNull
     @Size(min = 2, max = 25, message = "Type should have {min} - {max} characters")
-    @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Type:Only letters allowed")
+    @Pattern(regexp = "[A-Za-z]*", message = "Type:Only letters allowed")
     private String type;
 
     @Column(name = "details")

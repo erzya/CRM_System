@@ -19,14 +19,14 @@ public class Employee implements Serializable {
     @Column(name = "name")
     @NotNull
     @Size(min = 3, max = 30, message = "Name should have {min} - {max} characters")
-    @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Name:Only letters allowed")
+    @Pattern(regexp = "[A-Za-z0-9]*", message = "Name:Only letters allowed")
     private String name;
 
 
     @Column(name = "surname")
     @NotNull
     @Size(min = 3, max = 30, message = "Name should have {min} - {max} characters")
-    @Pattern(regexp = "[A-Za-zР-пр-џ]*", message = "Name:Only letters allowed")
+    @Pattern(regexp = "[A-Za-z0-9]*", message = "Name:Only letters allowed")
     private String surname;
 
     @Column(name = "isActive")
