@@ -8,10 +8,16 @@ CRM_SystemApp.config(['$routeProvider',function($routeProvider){
 CRM_SystemApp.controller('CRM_SystemController',['$scope','$http', function($scope, $http) {
     console.log("GetHome ctr before  !!!!!!!!!!!!");
     $http.get('/items').success(function (data) {
-        $scope.listItems = data;
+        $scope.items =[];
+        angular.forEach(data, function(value) {
+            var parseValue = value.split(/^\S+\./)[1]+'s';
+            var obj = {name: parseValue};
+            this.push( obj);
+        }, $scope.items);
     });
     console.log("GetHome ctr after  !!!!!!!!!!!!!");
 }]);
+
 
 /*Factories*/
 /*----------------Client------------------*/

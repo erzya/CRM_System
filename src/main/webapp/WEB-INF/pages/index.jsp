@@ -13,7 +13,7 @@
 <div id="container" class="panel panel-default">
     <div id="header" class="panel-heading">
         <div class="btn-group btn-group-justified">
-            <a class="btn btn-info" data-ng-repeat="item in listItems" role="button" href="#/items/{{item.toString}}">{{item.toString}}</a>
+            <a class="btn btn-info" data-ng-repeat="title in items" role="button" href="#/items/{{title.name}}">{{title.name}}</a>
         </div>
     </div>
     <div id="body" class="panel-body">
