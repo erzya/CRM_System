@@ -5,7 +5,7 @@ angular.module('employeeApp',['ngRoute','employeeController'])
         $routeProvider
             .when('/items/Employees',
             {
-                templateUrl:'/resources/static/components/employee/employees.jsp',
+                templateUrl:'/resources/static/components/employee/employeeList.jsp',
                 controller : 'CRM_EmployeesController'
             })
             .when('/items/Employees/new',

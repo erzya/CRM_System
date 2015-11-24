@@ -5,7 +5,7 @@ angular.module('orderApp',['ngRoute','orderController'])
         $routeProvider
             .when('/items/Orders',
             {
-                templateUrl:'/resources/static/components/order/orders.jsp',
+                templateUrl:'/resources/static/components/order/orderList.jsp',
                 controller : 'CRM_OrdersController'
             })
             .when('/items/Orders/new',

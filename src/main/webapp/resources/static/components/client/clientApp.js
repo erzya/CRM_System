@@ -5,7 +5,7 @@ angular.module('clientApp',['ngRoute','clientController'])
         $routeProvider
             .when('/items/Clients',
             {
-                templateUrl:'/resources/static/components/client/clients.jsp',
+                templateUrl:'/resources/static/components/client/clientList.jsp',
                 controller : 'CRM_ClientsController'
             })
             .when('/items/Clients/new',
