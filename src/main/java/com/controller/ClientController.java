@@ -21,15 +21,13 @@ public class ClientController {
     @ResponseBody
     @RequestMapping(value = "/clients",method = RequestMethod.GET)
     public List<Client> getClientList(){
-        List<Client> clientList = clientService.getClients();
-        return clientList;
+       return clientService.getClients();
     }
 
     @ResponseBody
     @RequestMapping(value = "/clients/{clientId}",method = RequestMethod.GET)
-    public Client getClient(@PathVariable("clientId") Integer clientId){
-        Client client = clientService.getClient(clientId);
-        return client;
+    public Client getClient(@PathVariable("clientId") int clientId){
+        return clientService.getClient(clientId);
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -39,13 +37,13 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/clients/update/{clientId}",method = RequestMethod.POST)
-    public void deleteClient(@RequestBody Client client){
+    public void updateClient(@RequestBody Client client){
         clientService.updateClient(client);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/clients/del/{clientId}",method = RequestMethod.POST)
-    public void deleteClient(@PathVariable("clientId") Integer clientId){
+    public void deleteClient(@PathVariable("clientId") int clientId){
         System.out.println(clientId);
         clientService.deleteClient(clientId);
     }

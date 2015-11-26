@@ -1,6 +1,6 @@
 'use strict';
 
-var CRM_SystemApp = angular.module('CRM_SystemApp', ['ngRoute','ngResource','clientApp','orderApp','employeeApp']);
+var CRM_SystemApp = angular.module('CRM_SystemApp', ['ngRoute','ngResource','clientApp','orderApp']);
 CRM_SystemApp.config(['$routeProvider',function($routeProvider){
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
