@@ -96,10 +96,3 @@ CRM_SystemApp.factory('OrderFactory',['$resource',function($resource){
         delete:{method:'POST',params:{action:'del',orderId:'@orderId'}}
     });
 }]);
-/*----------------Employee------------------*/
-CRM_SystemApp.factory('EmployeeFactory',['$resource',function($resource){
-    console.log("Before Return    Employee");
-    return $resource('employees/:action/:employeeId',{},{
-        delete:{method:'POST',params:{action:'del',employeeId:'@employeeId'}},
-    });
-}]);

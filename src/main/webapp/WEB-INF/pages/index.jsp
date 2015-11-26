@@ -35,8 +35,6 @@
 <script src="resources/static/components/client/clientApp.js"></script>
 <script src="resources/static/components/order/orderController.js"></script>
 <script src="resources/static/components/order/orderApp.js"></script>
-<script src="resources/static/components/employee/employeeController.js"></script>
-<script src="resources/static/components/employee/employeeApp.js"></script>
 </body>
 
 
