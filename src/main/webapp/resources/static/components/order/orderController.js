@@ -36,7 +36,7 @@ orderController.controller('CRM_OrderCreateController',['$scope','$routeParams',
                 .$promise.then(
                 //success
                 function( value ){
-                    $location.path('/items/Clients');
+                    $location.path('/items/Orders');
                 },
                 //error
                 function( error ){

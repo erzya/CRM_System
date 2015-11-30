@@ -47,7 +47,7 @@
                </div>
            </td>
            <td>
-               <button class="btn btn-primary" ng-click="saveItem()">Submit</button>
+               <button type="submit" class="btn btn-primary" ng-click="saveClient()">Submit</button>
            </td>
        </tr>
    </tbody>
