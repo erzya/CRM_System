@@ -1,6 +1,6 @@
 'use strict';
 
-var CRM_SystemApp = angular.module('CRM_SystemApp', ['ngRoute','ngResource','clientApp','orderApp']);
+var CRM_SystemApp = angular.module('CRM_SystemApp', ['ngRoute','ngResource','clientApp','orderApp','employeeApp']);
 CRM_SystemApp.config(['$routeProvider',function($routeProvider){
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
@@ -94,5 +94,12 @@ CRM_SystemApp.factory('OrderFactory',['$resource',function($resource){
     console.log("Before Return    Order");
     return $resource('orders/:action/:orderId',{},{
         delete:{method:'POST',params:{action:'del',orderId:'@orderId'}}
+    });
+}]);
+/*-----------------Employee-------------------*/
+CRM_SystemApp.factory('EmployeeFactory',['$resource',function($resource){
+    console.log("Before Return    Employee");
+    return $resource('employees/:action/:employeeId',{},{
+        delete:{method:'POST',params:{action:'del',employeeId:'@employeeId'}}
     });
 }]);

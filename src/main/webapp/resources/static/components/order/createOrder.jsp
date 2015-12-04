@@ -20,6 +20,16 @@
       <br/>
   </div>
 
+    <!--Employee-->
+    <div ng-class="{'has-error' : orderForm.employee.$invalid && !employeeForm.name.$pristine}">
+        <label>Employee</label>
+
+        <select class="form-control" name="employee" ng-model="order.employee" ng-options="employee.surname for employee in listEmployees" required>
+            <option value="">Select Employee</option>
+        </select>
+        <br/>
+    </div>
+
   <!-- SUBMIT BUTTON -->
   <button type="submit" class="btn btn-primary">Submit</button>
 

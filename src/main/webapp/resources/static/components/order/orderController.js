@@ -28,9 +28,10 @@ orderController.controller('CRM_OrderDelController',['$scope','$routeParams','Or
             });
     }]);
 
-orderController.controller('CRM_OrderCreateController',['$scope','$routeParams','OrderFactory','ClientFactory','$location',
-    function($scope, $routeParams, OrderFactory,ClientFactory, $location){
+orderController.controller('CRM_OrderCreateController',['$scope','$routeParams','OrderFactory','ClientFactory', 'EmployeeFactory','$location',
+    function($scope, $routeParams, OrderFactory,ClientFactory, EmployeeFactory, $location){
         $scope.listClients = ClientFactory.query();
+        $scope.listEmployees = EmployeeFactory.query();
         $scope.saveOrder = function(){
             OrderFactory.save({action:'new'},$scope.order)
                 .$promise.then(
